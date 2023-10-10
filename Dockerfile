@@ -32,6 +32,6 @@ ENV AR llvm-ar-${LLVM_VERSION}
 ENV RANLIB llvm-ranlib-${LLVM_VERSION}
 ENV NM llvm-nm-${LLVM_VERSION}
 
-ENV CFLAGS "-O2 -matomics -mbulk-memory -mmutable-globals -pthread -mthread-model posix -ftls-model=local-exec -fno-trapping-math -D_WASI_EMULATED_MMAN -D_WASI_EMULATED_SIGNAL -D_WASI_EMULATED_PROCESS_CLOCKS"
+ENV CFLAGS "--target=wasm32-wasi --sysroot=/wasix-sysroot -pthread -mthread-model posix -ftls-model=local-exec -fno-trapping-math -D_WASI_EMULATED_MMAN -D_WASI_EMULATED_SIGNAL -D_WASI_EMULATED_PROCESS_CLOCKS"
 ENV CXXFLAGS $CFLAGS -fno-exceptions
 ENV LDFLAGS --target=wasm32-wasi --sysroot=/wasix-sysroot
