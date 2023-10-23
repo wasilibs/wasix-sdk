@@ -32,6 +32,6 @@ ENV AR llvm-ar-${LLVM_VERSION}
 ENV RANLIB llvm-ranlib-${LLVM_VERSION}
 ENV NM llvm-nm-${LLVM_VERSION}
 
-ENV CFLAGS "--target=wasm32-wasi --sysroot=/wasix-sysroot -pthread -mthread-model posix -ftls-model=local-exec -fno-trapping-math -D_WASI_EMULATED_MMAN -D_WASI_EMULATED_SIGNAL -D_WASI_EMULATED_PROCESS_CLOCKS"
+ENV CFLAGS "--target=wasm32-wasmer-wasi --sysroot=/wasix-sysroot -pthread -mthread-model posix -ftls-model=local-exec -fno-trapping-math -D_WASI_EMULATED_MMAN -D_WASI_EMULATED_SIGNAL -D_WASI_EMULATED_PROCESS_CLOCKS"
 ENV CXXFLAGS $CFLAGS -fno-exceptions
-ENV LDFLAGS --target=wasm32-wasi --sysroot=/wasix-sysroot
+ENV LDFLAGS --target=wasm32-wasmer-wasi --sysroot=/wasix-sysroot -lwasi-emulated-mman -lwasi-emulated-process-clocks -lwasi-emulated-getpid -Wl,--shared-memory -Wl,--max-memory=4294967296 -Wl,--import-memory -Wl,--export-dynamic -Wl,--export=__heap_base -Wl,--export=__stack_pointer -Wl,--export=__data_end -Wl,--export=__wasm_init_tls -Wl,--export=__wasm_signal -Wl,--export=__tls_size -Wl,--export=__tls_align -Wl,--export=__tls_base
