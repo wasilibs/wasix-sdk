@@ -9,7 +9,7 @@ list(APPEND CMAKE_MODULE_PATH /usr/share/cmake/Modules)
 set(CMAKE_SYSTEM_NAME WASIX)
 set(CMAKE_SYSTEM_VERSION 1)
 set(CMAKE_SYSTEM_PROCESSOR wasm32)
-set(triple wasm32-wasi)
+set(triple wasm32-wasmer-wasi)
 
 set(CMAKE_C_COMPILER /usr/bin/clang-$ENV{LLVM_VERSION})
 set(CMAKE_CXX_COMPILER /usr/bin/clang++-$ENV{LLVM_VERSION})
